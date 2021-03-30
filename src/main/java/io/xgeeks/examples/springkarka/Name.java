@@ -4,8 +4,9 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
+import java.util.function.Supplier;
 
-public class Name {
+public class Name implements Supplier<String> {
 
     private final String name;
 
@@ -16,6 +17,11 @@ public class Name {
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public String get() {
+        return this.name;
     }
 
     @Override
@@ -41,4 +47,6 @@ public class Name {
     public int hashCode() {
         return Objects.hashCode(name);
     }
+
+
 }
