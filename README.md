@@ -27,3 +27,8 @@ The following guides illustrate how to use some features concretely:
     * `docker-compose up`
     * `mvn clean package`
     * `java -jar target/spring-karka-0.0.1-SNAPSHOT.jar`
+    
+## Access the API
+
+When the application is running:
+* http://localhost:8080/swagger-ui/index.html
