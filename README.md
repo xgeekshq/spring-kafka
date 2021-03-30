@@ -25,3 +25,5 @@ The following guides illustrate how to use some features concretely:
 3. Execute:
     * `mvn spring-boot:build-image `
     * `docker-compose up`
+    * `mvn clean package`
+    * `java -jar target/spring-karka-0.0.1-SNAPSHOT.jar`
