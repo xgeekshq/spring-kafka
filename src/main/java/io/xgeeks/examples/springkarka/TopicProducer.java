@@ -1,31 +1,30 @@
 package io.xgeeks.examples.springkarka;
 
 import org.apache.kafka.clients.admin.NewTopic;
-import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.config.TopicBuilder;
-import org.springframework.kafka.core.KafkaTemplate;
 
 @Configuration
 public class TopicProducer {
 
-    private static final String TOPIC_NAME = "name";
+    static final String NAME_INCREMENT = "name_increment";
+    static final String NAME_DECREMENT = "name_decrement";
 
     @Bean
-    public NewTopic topic() {
-        return TopicBuilder.name(TOPIC_NAME)
+    public NewTopic increment() {
+        return TopicBuilder.name(NAME_INCREMENT)
                 .partitions(10)
                 .replicas(1)
                 .build();
     }
 
     @Bean
-    public ApplicationRunner runner(KafkaTemplate<String, Name> template) {
-        return args -> {
-            var otavio = new Name();
-            otavio.setName("Otavio");
-            template.send(TOPIC_NAME, otavio);
-        };
+    public NewTopic decrement() {
+        return TopicBuilder.name(NAME_DECREMENT)
+                .partitions(10)
+                .replicas(1)
+                .build();
     }
+
 }
