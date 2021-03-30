@@ -1,7 +1,9 @@
 package io.xgeeks.examples.springkarka;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
@@ -27,8 +29,12 @@ public class NameController {
         return service.findAll();
     }
 
-    public NameStatus findByName(String name) {
-        Optional<NameStatus> nameStatus = service.findByName(name);
-        return nameStatus.orElseGet(() -> new NameStatus(name, 0));
+    @GetMapping("{name}")
+    public NameStatus findByName(@PathVariable("name") String name) {
+        return service.findByName(name);
+    }
+    @DeleteMapping(value = "{name}")
+    public void decrement(@PathVariable("name") String name) {
+        service.decrement(name);
     }
 }
