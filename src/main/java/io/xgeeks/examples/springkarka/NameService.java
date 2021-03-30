@@ -3,7 +3,6 @@ package io.xgeeks.examples.springkarka;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -21,8 +20,7 @@ public class NameService {
                 .collect(Collectors.toUnmodifiableList());
     }
 
-    public Optional<NameStatus> findByName(String name) {
-        counter.
-        return Optional.empty();
+    public NameStatus findByName(String name) {
+        return new NameStatus(name, counter.get(name));
     }
 }
