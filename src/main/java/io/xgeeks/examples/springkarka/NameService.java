@@ -22,6 +22,7 @@ public class NameService {
     }
 
     public Optional<NameStatus> findByName(String name) {
+        counter.
         return Optional.empty();
     }
 }
