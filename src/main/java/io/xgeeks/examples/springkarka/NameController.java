@@ -35,6 +35,7 @@ public class NameController {
     public NameStatus findByName(@PathVariable("name") String name) {
         return service.findByName(name);
     }
+
     @DeleteMapping(value = "{name}")
     public void decrement(@PathVariable("name") String name) {
         service.decrement(name);
@@ -42,6 +43,6 @@ public class NameController {
 
     @PutMapping(value = "{name}")
     public void increment(@PathVariable("name") String name) {
-        return service.increment(name);
+        service.increment(name);
     }
 }
