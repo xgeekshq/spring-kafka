@@ -10,7 +10,7 @@ import org.springframework.kafka.core.KafkaTemplate;
 @Configuration
 public class TopicProducer {
 
-    private static final String TOPIC_NAME = "topic1";
+    private static final String TOPIC_NAME = "topic2";
 
     @Bean
     public NewTopic topic() {
@@ -21,9 +21,11 @@ public class TopicProducer {
     }
 
     @Bean
-    public ApplicationRunner runner(KafkaTemplate<String, String> template) {
+    public ApplicationRunner runner(KafkaTemplate<String, Object> template) {
         return args -> {
-            template.send(TOPIC_NAME, "test");
+            var otavio = new Name();
+            otavio.setName("Otavio");
+            template.send(TOPIC_NAME, otavio);
         };
     }
 }

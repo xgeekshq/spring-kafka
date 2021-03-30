@@ -6,8 +6,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class Consumer {
 
-    @KafkaListener(id = "myId", topics = "topic1")
-    public void listen(String in) {
+    @KafkaListener(id = "myId", topics = "topic2")
+    public void listen(Name in) {
         System.out.println(in);
     }
 }
