@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>io.xgeeks.examples</groupId>
-	<artifactId>spring-karka</artifactId>
+	<artifactId>spring-kafka</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spring-karka</name>
 	<description>Demo project for Spring Boot and Apache Kafka</description>
