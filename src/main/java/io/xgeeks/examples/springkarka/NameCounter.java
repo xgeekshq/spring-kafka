@@ -1,57 +1,29 @@
 package io.xgeeks.examples.springkarka;
 
-import java.util.Objects;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
+@Component
 public class NameCounter {
 
-    private String name;
+    private Map<String, AtomicInteger> names;
 
-    private AtomicInteger value;
-
-    public NameCounter(String name) {
-        this.name = name;
-        this.value = new AtomicInteger(0);
+    public NameCounter() {
+        this.names = new ConcurrentHashMap<>();
     }
 
-    public String getName() {
-        return name;
+    public int increment(String name) {
+        AtomicInteger counter = this.names.computeIfAbsent(name, k -> new AtomicInteger(0));
+        return counter.incrementAndGet();
     }
 
-    public int getValue() {
-        return value.intValue();
-    }
-
-    public int increment() {
-        return this.value.incrementAndGet();
-    }
-
-    public int decrement() {
-        return this.value.decrementAndGet();
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        NameCounter that = (NameCounter) o;
-        return Objects.equals(name, that.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(name);
-    }
-
-    @Override
-    public String toString() {
-        return "NameCounter{" +
-                "name='" + name + '\'' +
-                ", value=" + value +
-                '}';
+    public int decrement(String name) {
+        AtomicInteger counter = this.names.computeIfAbsent(name, k -> new AtomicInteger(0));
+        return counter.decrementAndGet();
     }
 }
