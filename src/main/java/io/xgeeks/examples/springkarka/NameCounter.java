@@ -1,17 +1,16 @@
 package io.xgeeks.examples.springkarka;
 
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Stream;
 
 @Component
 public class NameCounter {
 
-    private Map<String, AtomicInteger> names;
+    private final Map<String, AtomicInteger> names;
 
     public NameCounter() {
         this.names = new ConcurrentHashMap<>();
@@ -25,5 +24,9 @@ public class NameCounter {
     public int decrement(String name) {
         AtomicInteger counter = this.names.computeIfAbsent(name, k -> new AtomicInteger(0));
         return counter.decrementAndGet();
+    }
+
+    public Stream<Map.Entry<String, AtomicInteger>> getValues() {
+        return this.names.entrySet().stream();
     }
 }
