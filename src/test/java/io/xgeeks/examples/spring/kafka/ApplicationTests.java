@@ -1,4 +1,4 @@
-package io.xgeeks.examples.springkarka;
+package io.xgeeks.examples.spring.kafka;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

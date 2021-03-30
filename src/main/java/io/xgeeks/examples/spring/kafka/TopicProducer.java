@@ -1,4 +1,4 @@
-package io.xgeeks.examples.springkarka;
+package io.xgeeks.examples.spring.kafka;
 
 import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.context.annotation.Bean;

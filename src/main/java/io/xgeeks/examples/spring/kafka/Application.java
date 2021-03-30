@@ -1,4 +1,4 @@
-package io.xgeeks.examples.springkarka;
+package io.xgeeks.examples.spring.kafka;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

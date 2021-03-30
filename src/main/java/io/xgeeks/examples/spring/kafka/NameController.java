@@ -1,4 +1,4 @@
-package io.xgeeks.examples.springkarka;
+package io.xgeeks.examples.spring.kafka;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;

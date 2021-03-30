@@ -1,4 +1,4 @@
-package io.xgeeks.examples.springkarka;
+package io.xgeeks.examples.spring.kafka;
 
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
