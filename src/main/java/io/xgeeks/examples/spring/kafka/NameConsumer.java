@@ -19,13 +19,13 @@ public class NameConsumer {
 
     @KafkaListener(id = "increment", topics = TopicProducer.NAME_INCREMENT)
     public void increment(Name name) {
-        LOGGER.info("Increment listener to " + name);
+        LOGGER.info("Increment listener to the name" + name);
         counter.increment(name.get());
     }
 
     @KafkaListener(id = "decrement", topics = TopicProducer.NAME_DECREMENT)
     public void decrement(Name name) {
-        LOGGER.info("Decrement listener to " + name);
+        LOGGER.info("Decrement listener to the name " + name);
         counter.decrement(name.get());
     }
 }
