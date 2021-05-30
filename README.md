@@ -26,8 +26,7 @@ The following guides illustrate how to use some features concretely:
     * `mvn spring-boot:build-image `
     * `docker-compose up`
     * `mvn clean package`
-    * `java -jar target/spring-karka-0.0.1-SNAPSHOT.jar`
-    
+    * `java -jar target/spring-kafka-0.0.1-SNAPSHOT.jar`
 ## Access the API
 
 When the application is running:
